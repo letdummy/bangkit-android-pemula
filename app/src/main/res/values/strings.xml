@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">moviemu</string>
+    <string name="moviemu">MovieMu</string>
+    <string name="profile_button">Profile button</string>
+</resources>
