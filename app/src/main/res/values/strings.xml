@@ -6,6 +6,7 @@
     <string name="movie_title">Movie Title</string>
     <string name="movie_overview">Movie Overview</string>
     <string name="detail">Detail</string>
+    <string name="image">image</string>
 
     <string-array name="data_title">
         <item>Drive</item>
@@ -43,7 +44,7 @@
         </item> <!-- The Big Short -->
 
         <item>
-            Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.
+            Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who\'s been missing for thirty years.
         </item> <!-- Blade Runner 2049 -->
 
         <item>
@@ -59,7 +60,7 @@
         </item> <!-- First Man -->
 
         <item>
-            When a shadowy CIA agent uncovers damning agency secrets, he\'s hunted across the globe by a sociopathic rogue operative who's put a bounty on his head.
+            When a shadowy CIA agent uncovers damning agency secrets, he\'s hunted across the globe by a sociopathic rogue operative who\'s put a bounty on his head.
         </item> <!-- The Gray Man -->
 
         <item>
