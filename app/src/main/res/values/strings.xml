@@ -2,4 +2,77 @@
     <string name="app_name">moviemu</string>
     <string name="moviemu">MovieMu</string>
     <string name="profile_button">Profile button</string>
+
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_overview">Movie Overview</string>
+    <string name="detail">Detail</string>
+
+    <string-array name="data_title">
+        <item>Drive</item>
+        <item>The Big Short</item>
+        <item>Blade Runner 2049</item>
+        <item>La La Land</item>
+        <item>The Nice Guy</item>
+        <item>First Man</item>
+        <item>The Gray Man</item>
+        <item>The Chase for Charrera</item>
+        <item>The Place Beyond The Pines</item>
+        <item>Barbie</item>
+    </string-array>
+
+    <string-array name="data_image">
+        <item>@drawable/drive</item>
+        <item>@drawable/thebig_short</item>
+        <item>@drawable/bladerunner</item>
+        <item>@drawable/lalaland</item>
+        <item>@drawable/thenice_guy</item>
+        <item>@drawable/first_man</item>
+        <item>@drawable/thegray_man</item>
+        <item>@drawable/thechase_carrera</item>
+        <item>@drawable/theplace_beyond</item>
+        <item>@drawable/barbie</item>
+    </string-array>
+
+    <string-array name="data_overview">
+        <item>
+            A mysterious Hollywood stuntman and mechanic moonlights as a getaway driver and finds himself in trouble when he helps out his neighbor in this action drama.
+        </item> <!-- Drive -->
+
+        <item>
+            Four denizens in the world of high-finance predict the credit and housing bubble collapse of the mid-2000s, and decide to take on the big banks for their greed and lack of foresight.
+        </item> <!-- The Big Short -->
+
+        <item>
+            Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.
+        </item> <!-- Blade Runner 2049 -->
+
+        <item>
+            While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.
+        </item> <!-- La La Land -->
+
+        <item>
+            A private eye investigates the apparent suicide of a fading porn star in 1970s Los Angeles and uncovers a conspiracy.
+        </item> <!-- The Nice Guy -->
+
+        <item>
+            A look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon on July 20, 1969.
+        </item> <!-- First Man -->
+
+        <item>
+            When a shadowy CIA agent uncovers damning agency secrets, he\'s hunted across the globe by a sociopathic rogue operative who's put a bounty on his head.
+        </item> <!-- The Gray Man -->
+
+        <item>
+            To celebrate this TAG Heuer Carrera Chronograph 39mm timepiece icon, TAG Heuer has done something just as daring and maverick as the watch’s design: launching a 5-minute Hollywood action-comedy.
+        </item>  <!-- The Chase for Charrera -->
+
+        <item>
+            A motorcycle stunt rider considers committing a crime in order to provide for his wife and child, an act that puts him on a collision course with a cop-turned-politician.
+        </item> <!-- The Place Beyond The Pines -->
+
+        <item>
+            Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.
+        </item> <!-- Barbie -->
+    </string-array>
+
 </resources>
