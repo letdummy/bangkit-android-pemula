@@ -30,9 +30,9 @@
                 android:src="@drawable/share"
                 android:layout_gravity="bottom|end"
                 android:background="@drawable/round_button"
-                android:paddingLeft="16dp"
+                android:paddingStart="16dp"
                 android:paddingTop="6dp"
-                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
                 />
         </FrameLayout>
 
@@ -60,10 +60,6 @@
             android:layout_gravity="center"
             android:id="@+id/detail_overview"
             />
-
-
-
-
     </LinearLayout>
 
 

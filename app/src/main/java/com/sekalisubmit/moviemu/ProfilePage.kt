@@ -1,6 +1,7 @@
 package com.sekalisubmit.moviemu
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +14,9 @@ class ProfilePage : AppCompatActivity() {
         val btnHome: Button = findViewById(R.id.home_button)
 
         btnHome.setOnClickListener {
-            val moveIntent = Intent(this@ProfilePage, MainActivity::class.java)
-            startActivity(moveIntent)
+            val linkGitHub = "https://github.com/letdummy"
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(linkGitHub))
+            startActivity(browserIntent)
         }
     }
 }

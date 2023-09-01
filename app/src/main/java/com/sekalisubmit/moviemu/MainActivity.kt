@@ -1,6 +1,7 @@
 package com.sekalisubmit.moviemu
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         val btnProfile: ImageButton = findViewById(R.id.btn_profile)
 
+        if (savedInstanceState != null) {
+            isLinear = savedInstanceState.getBoolean("isLinear", true)
+        }
+
         rvMovie = findViewById(R.id.rv_movie)
         rvMovie.setHasFixedSize(true)
 
@@ -33,7 +38,11 @@ class MainActivity : AppCompatActivity() {
         btnCard.setOnClickListener {
             when (isLinear) {
                 true -> {
-                    rvMovie.layoutManager = GridLayoutManager(this, 3)
+                    if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        rvMovie.layoutManager = GridLayoutManager(this, 5)
+                    } else {
+                        rvMovie.layoutManager = GridLayoutManager(this, 3)
+                    }
                     val listMovieAdapterCard = ListMovieAdapterCard(list, onClick = { rvClick(it) })
                     rvMovie.adapter = listMovieAdapterCard
 
@@ -79,9 +88,13 @@ class MainActivity : AppCompatActivity() {
                 rvMovie.adapter = listMovieAdapter
             }
             false -> {
-                rvMovie.layoutManager = LinearLayoutManager(this)
-                val listMovieAdapter = ListMovieAdapter(list, onClick = { rvClick(it) })
-                rvMovie.adapter = listMovieAdapter
+                if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    rvMovie.layoutManager = GridLayoutManager(this, 5)
+                } else {
+                    rvMovie.layoutManager = GridLayoutManager(this, 3)
+                }
+                val listMovieAdapterCard = ListMovieAdapterCard(list, onClick = { rvClick(it) })
+                rvMovie.adapter = listMovieAdapterCard
             }
         }
     }
@@ -91,4 +104,10 @@ class MainActivity : AppCompatActivity() {
         moveIntent.putExtra("movie_data", it)
         startActivity(moveIntent)
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("isLinear", isLinear)
+    }
+
 }
