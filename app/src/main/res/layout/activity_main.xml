@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
             android:text="@string/moviemu"
-            android:textSize="30sp"
+            android:textSize="35sp"
             android:textColor="@color/accent"
             android:layout_gravity="center"
             android:background="@color/primary"

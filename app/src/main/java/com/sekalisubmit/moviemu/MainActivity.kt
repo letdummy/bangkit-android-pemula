@@ -1,5 +1,6 @@
 package com.sekalisubmit.moviemu
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity(){
+
+class MainActivity : AppCompatActivity() {
     private lateinit var rvMovie: RecyclerView
     private val list = ArrayList<Movie>()
+
+    var isLinear = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -17,7 +21,8 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
 
         val btnCard: ImageButton = findViewById(R.id.btn_view_card)
-        var isLinear = true
+
+        val btnProfile: ImageButton = findViewById(R.id.btn_profile)
 
         rvMovie = findViewById(R.id.rv_movie)
         rvMovie.setHasFixedSize(true)
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity(){
             when (isLinear) {
                 true -> {
                     rvMovie.layoutManager = GridLayoutManager(this, 3)
-                    val listMovieAdapterCard = ListMovieAdapterCard(list)
+                    val listMovieAdapterCard = ListMovieAdapterCard(list, onClick = { rvClick(it) })
                     rvMovie.adapter = listMovieAdapterCard
 
                     btnCard.setImageResource(R.drawable.view_list)
@@ -37,13 +42,18 @@ class MainActivity : AppCompatActivity(){
                 }
                 false -> {
                     rvMovie.layoutManager = LinearLayoutManager(this)
-                    val listMovieAdapter = ListMovieAdapter(list)
+                    val listMovieAdapter = ListMovieAdapter(list, onClick = { rvClick(it) })
                     rvMovie.adapter = listMovieAdapter
 
                     btnCard.setImageResource(R.drawable.view_card)
                     isLinear = true
                 }
             }
+        }
+
+        btnProfile.setOnClickListener {
+            val moveIntent = Intent(this@MainActivity, ProfilePage::class.java)
+            startActivity(moveIntent)
         }
     }
 
@@ -53,15 +63,32 @@ class MainActivity : AppCompatActivity(){
         val overviewData = resources.getStringArray(R.array.data_overview)
         val listMovie = ArrayList<Movie>()
         for (i in titleData.indices) {
-            val movie = Movie(imageData.getResourceId(i, -1), titleData[i], overviewData[i])
+            val movie = Movie(imageData.getResourceId(i, -1),
+                titleData[i], overviewData[i])
             listMovie.add(movie)
         }
         return listMovie
     }
 
     private fun showRecyclerList() {
-        rvMovie.layoutManager = LinearLayoutManager(this)
-        val listMovieAdapter = ListMovieAdapter(list)
-        rvMovie.adapter = listMovieAdapter
+        // dicek status isLinear untuk menjaga bentuk rv ketika user kembali ke home
+        when (isLinear){
+            true -> {
+                rvMovie.layoutManager = LinearLayoutManager(this)
+                val listMovieAdapter = ListMovieAdapter(list, onClick = { rvClick(it) })
+                rvMovie.adapter = listMovieAdapter
+            }
+            false -> {
+                rvMovie.layoutManager = LinearLayoutManager(this)
+                val listMovieAdapter = ListMovieAdapter(list, onClick = { rvClick(it) })
+                rvMovie.adapter = listMovieAdapter
+            }
+        }
+    }
+
+    private fun rvClick(it: Movie) {
+        val moveIntent = Intent(this@MainActivity, DetailPage::class.java)
+        moveIntent.putExtra("movie_data", it)
+        startActivity(moveIntent)
     }
 }

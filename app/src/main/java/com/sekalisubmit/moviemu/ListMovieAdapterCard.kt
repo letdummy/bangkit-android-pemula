@@ -6,8 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListMovieAdapterCard(private val listMovie: ArrayList<Movie>) : RecyclerView.Adapter<ListMovieAdapterCard.ListViewHolder>() {
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ListMovieAdapterCard(
+    private val listMovie: ArrayList<Movie>,
+    private val onClick: (Movie) -> Unit)
+    : RecyclerView.Adapter<ListMovieAdapterCard.ListViewHolder>() {
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageList: ImageView = itemView.findViewById(R.id.list_image)
     }
 
@@ -23,5 +26,9 @@ class ListMovieAdapterCard(private val listMovie: ArrayList<Movie>) : RecyclerVi
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (image) = listMovie[position]
         holder.imageList.setImageResource(image)
+
+        holder.itemView.setOnClickListener {
+            onClick(listMovie[position])
+        }
     }
 }

@@ -7,6 +7,7 @@
     <string name="movie_overview">Movie Overview</string>
     <string name="detail">Detail</string>
     <string name="image">image</string>
+    <string name="meet_the_dev">Meet the Dev</string>
 
     <string-array name="data_title">
         <item>Drive</item>

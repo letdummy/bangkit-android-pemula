@@ -7,8 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListMovieAdapter(private val listMovie: ArrayList<Movie>) : RecyclerView.Adapter<ListMovieAdapter.ListViewHolder>() {
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ListMovieAdapter(
+    private val listMovie: ArrayList<Movie>,
+    private val onClick: (Movie) -> Unit)
+    : RecyclerView.Adapter<ListMovieAdapter.ListViewHolder>() {
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageList: ImageView = itemView.findViewById(R.id.list_image)
         val titleList: TextView = itemView.findViewById(R.id.list_title)
         val overviewList: TextView = itemView.findViewById(R.id.list_overview)
@@ -29,5 +32,8 @@ class ListMovieAdapter(private val listMovie: ArrayList<Movie>) : RecyclerView.A
         val limitedOverview = overview.substring(0, 50) + "..."
 
         holder.overviewList.text = limitedOverview
+        holder.itemView.setOnClickListener {
+            onClick(listMovie[position])
+        }
     }
 }
