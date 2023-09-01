@@ -29,7 +29,8 @@ class ListMovieAdapter(
         holder.imageList.setImageResource(image)
         holder.titleList.text = title
 
-        val limitedOverview = overview.substring(0, 80) + "..."
+        val regex = Regex("(?<=\\n\n).{0,100}")
+        val limitedOverview = regex.find(overview)?.value.toString()
 
         holder.overviewList.text = limitedOverview
         holder.itemView.setOnClickListener {
