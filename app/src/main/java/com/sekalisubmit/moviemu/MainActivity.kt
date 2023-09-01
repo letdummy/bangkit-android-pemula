@@ -1,5 +1,6 @@
 package com.sekalisubmit.moviemu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("Recycle")
     private fun getListMovies(): ArrayList<Movie> {
         val imageData = resources.obtainTypedArray(R.array.data_image)
         val titleData = resources.getStringArray(R.array.data_title)

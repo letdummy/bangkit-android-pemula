@@ -9,6 +9,8 @@
     <string name="image">image</string>
     <string name="meet_the_dev">Meet the Dev</string>
     <string name="check_github">Check GitHub</string>
+    <string name="share">Share</string>
+    <string name="email">aguzardiansyahnh@gmail.com</string>
 
     <string-array name="data_title">
         <item>Drive</item>
