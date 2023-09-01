@@ -29,7 +29,7 @@ class ListMovieAdapter(
         holder.imageList.setImageResource(image)
         holder.titleList.text = title
 
-        val limitedOverview = overview.substring(0, 50) + "..."
+        val limitedOverview = overview.substring(0, 80) + "..."
 
         holder.overviewList.text = limitedOverview
         holder.itemView.setOnClickListener {
